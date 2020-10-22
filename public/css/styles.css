@@ -65,7 +65,7 @@ footer {
 }
 
 a {
-  color: lightskyblue;
+  color: cornflowerblue;
 }
 
 .copyurl {
@@ -104,7 +104,7 @@ div.input label {
 }
 .addon button:hover {
   background: #FFF;
-  color: lightskyblue;
+  color: cornflowerblue;
 }
 
 div.hr {
@@ -115,7 +115,7 @@ div.hr {
 }
 
 a.button {
-  border: 2px solid lightskyblue;
+  border: 2px solid cornflowerblue;
   font-weight: bold;
   margin: 0;
   border-radius: 3px;
@@ -259,7 +259,7 @@ a.button:hover {
 }
 #message_window .message.outgoing {
   float: right;
-  background: lightskyblue;
+  background: cornflowerblue;
   color: white;
 }
 #message_window #message_replies {
@@ -282,15 +282,15 @@ a.button:hover {
 #message_window #message_replies a {
   text-decoration: none;
   display: block;
-  border: 1px solid lightskyblue;
-  color: lightskyblue;
+  border: 1px solid cornflowerblue;
+  color: cornflowerblue;
   border-radius: 16px;
   padding: 0.25rem 1rem;
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
 }
 #message_window #message_replies a:hover {
-  background: lightskyblue;
+  background: cornflowerblue;
   color: #FFF;
 }
 
@@ -389,12 +389,16 @@ img.img-k3po {
   width: 100%;
 }
 
+.faplane{
+  color: cornflowerblue
+}
+
 
 @media only screen and (max-device-width: 1000px) { 
 
   .wrapper {
     position: absolute;
-    max-width: 500px;
+    max-width: 450px;
     height: 400px;
     z-index: 2;
     left: 0%;
@@ -415,5 +419,8 @@ img.img-k3po {
     width: 100%;
   }
 
+  #message_window footer input[type=text] {
+    flex-grow: .8 !important;
+  }
 
 }

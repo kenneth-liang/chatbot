@@ -336,7 +336,7 @@ module.exports = function (controller) {
       })
       await bot.beginDialog('typing');
       await bot.reply(message, {
-            text: 'What else would you like to know about my creator?',
+            text: 'What else would you like to know about me?',
             quick_replies: 
                 [
                     {
@@ -384,7 +384,7 @@ module.exports = function (controller) {
         await bot.reply(message, "Interpersonal: Leader, Active Listener, Team Player, Motivating, Flexible " )
         await bot.beginDialog('typing');
         await bot.reply(message, {
-            text: 'What else would you like to know about my creator?',
+            text: 'What else would you like to know about me?',
             quick_replies: 
                 [
                     {
@@ -445,9 +445,10 @@ module.exports = function (controller) {
 
   controller.hears(['contact','more contact'], 'message,direct_message',
     async (bot, message) => {
+      await bot.beginDialog('typing');
       await bot.reply(message,
         {
-            text: 'You can contact me through email or and of my online profiles!',
+            text: 'You can contact me through email or one of my online profiles!',
             quick_replies: [
                 {
                     title: 'Portfolio',
@@ -481,7 +482,7 @@ module.exports = function (controller) {
       const port = resume.background.website
       await bot.beginDialog('typing');
       await bot.changeContext(message.reference);
-      await bot.reply(message, `Visit my website @ ${port}`);
+      await bot.reply(message, `Visit my website @<a target="_blank" href="${port}">${port}</a>`);
       await bot.beginDialog('typing');
       setTimeout( async () => {
           await bot.changeContext(message.reference);
@@ -507,7 +508,7 @@ module.exports = function (controller) {
       const email = resume.background.email
       await bot.beginDialog('typing');
       await bot.changeContext(message.reference);
-      await bot.reply(message, `Send me an email! ${email}`);
+      await bot.reply(message, `Send me an <a target="_blank" href="mailto:kennethkjliang@gmail.com">email!</a>`);
       await bot.beginDialog('typing');
       setTimeout( async () => {
           await bot.changeContext(message.reference);
@@ -533,7 +534,7 @@ module.exports = function (controller) {
       const linked_in = resume.background.profiles[0]
       await bot.beginDialog('typing');
       await bot.changeContext(message.reference);
-      await bot.reply(message, `Connect with me on LinkedIn. Here is my profile, ${linked_in.link}`);
+      await bot.reply(message, `Connect with me on LinkedIn. Here is my <a target="_blank" href="${linked_in.link}">profile!</a>`);
       await bot.beginDialog('typing');
       setTimeout( async () => {
           await bot.changeContext(message.reference);
@@ -559,7 +560,7 @@ module.exports = function (controller) {
       const angel = resume.background.profiles[1]
       await bot.beginDialog('typing');
       await bot.changeContext(message.reference);
-      await bot.reply(message, `Connect with me on AngelList. Here is my profile, ${angel.link}`);
+      await bot.reply(message, `Connect with me on AngelList. Here is my <a target="_blank" href="${angel.link}">profile!</a>`);
       await bot.beginDialog('typing');
       setTimeout( async () => {
           await bot.changeContext(message.reference);
@@ -585,7 +586,7 @@ module.exports = function (controller) {
       const github = resume.background.profiles[2]
       await bot.beginDialog('typing');
       await bot.changeContext(message.reference);
-      await bot.reply(message, `Want to see my work?. Here is my GitHub, ${github.link}`);
+      await bot.reply(message, `Want to see my work?. Here is my <a target="_blank" href="${github.link}">GitHub!</a>`);
       await bot.beginDialog('typing');
       setTimeout( async () => {
           await bot.changeContext(message.reference);
