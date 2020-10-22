@@ -137,11 +137,12 @@ module.exports = function (controller) {
   // work 
   controller.hears(['work', 'experience', 'more work information'], 'message,direct_message',
     async (bot, message) => {
-        await bot.reply(message,
-            {
-                text: "My professional work experience ranges from technician, analyst, and software engineering.",
-                quick_replies: work
-            });
+      await bot.beginDialog('typing');
+      await bot.reply(message,
+          {
+              text: "My professional work experience ranges from technician, analyst, and software engineering.",
+              quick_replies: work
+          });
     });
 
   controller.hears("Senior Credit Operations Analyst", "message, direct_message", 
