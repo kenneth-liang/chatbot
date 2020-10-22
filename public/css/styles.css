@@ -363,7 +363,10 @@ a.button:hover {
   height: 50px;
   margin-bottom: 20px;
   color: white;
-  
+}
+
+.name {
+    margin-left: 10%;
 }
 
 .ifa {
@@ -373,7 +376,7 @@ a.button:hover {
 }
 
 .links:last-child {
-  padding-right: 4rem !important;
+  padding-right: 10% !important;
 }
 
 .k3po-div{
