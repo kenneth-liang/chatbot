@@ -289,7 +289,7 @@ module.exports = function (controller) {
         await bot.beginDialog('typing');
         await bot.changeContext(message.reference);
         await bot.reply(message, `I attended ${edu.institution} from ${edu.startDate} to ${edu.endDate}`) 
-        await bot.reply(message, `I studied ${edu.focus} and was graduated with a ${edu.degree}`)
+        await bot.reply(message, `I studied ${edu.focus} and graduated with a ${edu.degree}`)
         await bot.beginDialog('typing');
         setTimeout( async () => {
             await bot.changeContext(message.reference);
@@ -487,7 +487,7 @@ module.exports = function (controller) {
       setTimeout( async () => {
           await bot.changeContext(message.reference);
           await bot.reply( message, {
-            text: 'What to hear more contact information?',
+            text: 'What to hear other contact information?',
             quick_replies: [
               {
                 title: 'Yes, More Contact Information',
@@ -513,7 +513,7 @@ module.exports = function (controller) {
       setTimeout( async () => {
           await bot.changeContext(message.reference);
           await bot.reply( message, {
-            text: 'What to hear more contact information?',
+            text: 'What to hear other contact information?',
             quick_replies: [
               {
                 title: 'Yes, More Contact Information',
@@ -539,7 +539,7 @@ module.exports = function (controller) {
       setTimeout( async () => {
           await bot.changeContext(message.reference);
           await bot.reply( message, {
-            text: 'What to hear more contact information?',
+            text: 'What to hear other contact information?',
             quick_replies: [
               {
                 title: 'Yes, More Contact Information',
@@ -565,7 +565,7 @@ module.exports = function (controller) {
       setTimeout( async () => {
           await bot.changeContext(message.reference);
           await bot.reply( message, {
-            text: 'What to hear more contact information?',
+            text: 'What to hear other contact information?',
             quick_replies: [
               {
                 title: 'Yes, More Contact Information',
@@ -591,7 +591,7 @@ module.exports = function (controller) {
       setTimeout( async () => {
           await bot.changeContext(message.reference);
           await bot.reply( message, {
-            text: 'What to hear more contact information?',
+            text: 'What to hear other contact information?',
             quick_replies: [
               {
                 title: 'Yes, More Contact Information',
