@@ -1,5 +1,5 @@
 module.exports = function(controller) {
-    controller.on('connected', async(bot, message) => {
+    controller.on('hello', async(bot, message) => {
         await bot.beginDialog('typing');
         await bot.reply(message, `Hello! I'm K3PO, the artificial conciousness of Kenneth's mind.`);
         await bot.changeContext(message.reference);
