@@ -26,7 +26,11 @@ module.exports = function(controller) {
                         title: 'Contact Information',
                         payload: 'Contact Information'
                     },
-                    ]
+                    {
+                        title: 'Say Hello',
+                        payload: 'hello'
+                    },
+            ]
         });
     });
 
@@ -57,6 +61,10 @@ module.exports = function(controller) {
                           title: 'Contact Information',
                           payload: 'Contact Information'
                       },
+                      {
+                        title: 'Say Hello',
+                        payload: 'hello'
+                    },
                     ]
             });
     });
