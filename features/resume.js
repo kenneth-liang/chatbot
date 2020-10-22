@@ -96,7 +96,7 @@ module.exports = function (controller) {
         date: "2020",
         link: "https://kenneth-liang.github.io/WorldwidePen/",
         repo: "https://github.com/kenneth-liang/WorldwidePen",
-        summary: "A full-stack web application with an OpenTable inspired UX/UI, where users can reserve seatings at their local restaurant."
+        summary: "An JS incremental game that pits you against market forces. Your job is to make and sell pens - but as you earn more money, you get better and new ways to do the job."
       },
     ],
     skills: [
@@ -120,10 +120,6 @@ module.exports = function (controller) {
         language: "Redux",
         experience: "Advanced",
       },
-      {
-        language: "Redux",
-        experience: "Advanced",
-      }
     ]
   };
 
@@ -135,12 +131,12 @@ module.exports = function (controller) {
   ));
   
   // work 
-  controller.hears(['work', 'experience', 'more work information'], 'message,direct_message',
+  controller.hears(['work', 'experience', 'other work information'], 'message,direct_message',
     async (bot, message) => {
       await bot.beginDialog('typing');
       await bot.reply(message,
           {
-              text: "My professional work experience ranges from technician, analyst, and software engineering.",
+              text: "Here are my previous work experiences:",
               quick_replies: work
           });
     });
@@ -161,11 +157,11 @@ module.exports = function (controller) {
       setTimeout( async () => {
           await bot.changeContext(message.reference);
           await bot.reply( message, {
-            text: 'What to hear more contact information?',
+            text: 'What to hear about my other work experiences?',
             quick_replies: [
               {
-                title: 'Yes, More Work Information',
-                payload: 'more work information'
+                title: 'Yes, See Other Work Information',
+                payload: 'other work information'
               },
               {
                 title: 'Back',
@@ -182,7 +178,7 @@ module.exports = function (controller) {
       const job = resume.work[1]
       await bot.beginDialog('typing');
       await bot.changeContext(message.reference);
-      await bot.reply(message, `KennIeth worked for ${job.company} as a ${job.position} from ${job.startDate} to ${job.endDate}`)
+      await bot.reply(message, `I worked for ${job.company} as a ${job.position} from ${job.startDate} to ${job.endDate}`)
       await bot.beginDialog('typing');
       await bot.reply(message, `My accomplishments: `)
       for (let i = 0; i < job.summary.length; i++){
@@ -193,11 +189,11 @@ module.exports = function (controller) {
       setTimeout( async () => {
           await bot.changeContext(message.reference);
           await bot.reply( message, {
-            text: 'What to hear more contact information?',
+            text: 'What to hear about my other work experiences?',
             quick_replies: [
               {
-                title: 'Yes, More Work Information',
-                payload: 'more work information'
+                title: 'Yes, See Other Work Information',
+                payload: 'other work information'
               },
               {
                 title: 'Back',
@@ -225,11 +221,11 @@ module.exports = function (controller) {
       setTimeout( async () => {
           await bot.changeContext(message.reference);
           await bot.reply( message, {
-            text: 'What to hear more contact information?',
+            text: 'What to hear about my other work experiences?',
             quick_replies: [
               {
-                title: 'Yes, More Work Information',
-                payload: 'more work information'
+                title: 'Yes, See Other Work Information',
+                payload: 'other work information'
               },
               {
                 title: 'Back',
@@ -249,13 +245,14 @@ module.exports = function (controller) {
   ));
 
   // edu
-  controller.hears(['education', "more education"], 'message,direct_message',
+  controller.hears(['education', "more educations"], 'message,direct_message',
       async (bot, message) => {
-          await bot.reply(message,
-              {
-                  text: 'Here is a list of schools that I have studied at',
-                  quick_replies: education
-              })
+        await bot.beginDialog('typing');
+        await bot.reply(message,
+            {
+                text: 'Here is a list of institutions that I have studied at: ',
+                quick_replies: education
+            })
       }
   )
 
@@ -265,16 +262,16 @@ module.exports = function (controller) {
         await bot.beginDialog('typing');
         await bot.changeContext(message.reference);
         await bot.reply(message, `I attended ${edu.institution} from ${edu.startDate} to ${edu.endDate}`) 
-        await bot.reply(message, `I studied ${edu.focus} and was awarded with a ${edu.degree}`) 
+        await bot.reply(message, `I studied ${edu.focus}`) 
         await bot.beginDialog('typing');
         setTimeout( async () => {
             await bot.changeContext(message.reference);
             await bot.reply( message, {
-              text: 'What to hear more contact information?',
+              text: 'What to hear more about other educations?',
               quick_replies: [
                 {
-                  title: 'Yes, More Education Information',
-                  payload: 'more education'
+                  title: 'Yes, Other Education Information',
+                  payload: 'other educations'
                 },
                 {
                   title: 'Back',
@@ -297,11 +294,11 @@ module.exports = function (controller) {
         setTimeout( async () => {
             await bot.changeContext(message.reference);
             await bot.reply( message, {
-              text: 'What to hear more contact information?',
+              text: 'What to hear more about other educations?',
               quick_replies: [
                 {
-                  title: 'Yes, More Education Information',
-                  payload: 'more education'
+                  title: 'Yes, Other Education Information',
+                  payload: 'other educations'
                 },
                 {
                   title: 'Back',
@@ -311,6 +308,61 @@ module.exports = function (controller) {
             })
         })
     }
+  )
+
+
+  // projects 
+  const projects = resume.projects.map ( project => (
+    {
+      title: project.name,
+      payload: project.name
+    }
+  ))
+
+  controller.hears('projects', 'message,direct_message', 
+    async (bot, message) => {
+      await bot.beginDialog('typing');
+      await bot.reply(message, {
+        text: `Checkout my projects at my <a target="_blank" href="https://kennethliang.com/">Website</a>`
+      })
+      await bot.reply(message, {
+        text: `<a target="_blank" href="https://seat-check.herokuapp.com/#/">Seat Check</a>: A full-stack web application with an OpenTable inspired UX/UI, where users can reserve seatings at their local restaurant. `
+      })
+      await bot.reply(message, {
+        text: `<a target="_blank" href="http://fitness-book.herokuapp.com/">FitBook</a>: Fitness tracking web application that allows users to create, track, and share custom workouts `
+      })
+      await bot.reply(message, {
+        text: `<a target="_blank" href="https://kenneth-liang.github.io/WorldwidePen/">WorldWide Pen</a>: An JS incremental game that pits you against market forces. Your job is to make and sell pens - but as you earn more money, you get better and new ways to do the job.`
+      })
+      await bot.beginDialog('typing');
+      await bot.reply(message, {
+            text: 'What else would you like to know about my creator?',
+            quick_replies: 
+                [
+                    {
+                        title: 'Work Experience',
+                        payload: 'What work experience do you have?'
+                    },
+                    {
+                        title: 'Education',
+                        payload: 'Education'
+                    },
+                    {
+                        title: 'Projects',
+                        payload: 'Projects'
+                    },
+                    {
+                        title: 'Skills',
+                        payload: 'skills'
+                    },
+                    {
+                        title: 'Contact Information',
+                        payload: 'Contact Information'
+                    },
+                ]
+        });
+    }
+  
   )
 
   //skills
@@ -326,13 +378,63 @@ module.exports = function (controller) {
 
   controller.hears('skills', 'message,direct_message',
       async (bot, message) => {
-          await bot.reply(message,
-              {
-                  text: 'Here are my skills',
-                  quick_replies: skills
-              })
+        await bot.beginDialog('typing');
+        await bot.reply(message, "Here are my skills: " )
+        await bot.reply(message, "Technologies: JavaScript, React, Redux, HTML, CSS, Ruby, Ruby on Rails, Mongoose, MongoDB, Node.js, Express.js, SQL, SQLite3, PostgreSQL, Webpack, jQuery, Git, Heroku, Tableau, JIRA, Amazon Web Services (AWS) " )
+        await bot.reply(message, "Interpersonal: Leader, Active Listener, Team Player, Motivating, Flexible " )
+        await bot.beginDialog('typing');
+        await bot.reply(message, {
+            text: 'What else would you like to know about my creator?',
+            quick_replies: 
+                [
+                    {
+                        title: 'Work Experience',
+                        payload: 'What work experience do you have?'
+                    },
+                    {
+                        title: 'Education',
+                        payload: 'Education'
+                    },
+                    {
+                        title: 'Projects',
+                        payload: 'Projects'
+                    },
+                    {
+                        title: 'Skills',
+                        payload: 'skills'
+                    },
+                    {
+                        title: 'Contact Information',
+                        payload: 'Contact Information'
+                    },
+                ]
+        });
+
       }
   )
+
+  controller.hears(["JavaScript", "Ruby on Rails", "SQL", "React", "Redux"], "message, direct_message", 
+    async (bot,message) => {
+      await bot.beginDialog('typing');
+      setTimeout( async () => {
+          await bot.changeContext(message.reference);
+          await bot.reply( message, {
+            text: 'What to hear more contact information?',
+            quick_replies: [
+              {
+                title: 'Yes, More Contact Information',
+                payload: 'more contact'
+              },
+              {
+                title: 'Back',
+                payload: 'Back'
+              }
+            ]
+          })
+      })
+    }
+  )
+
 
   // contact 
   const contact = {
@@ -345,7 +447,7 @@ module.exports = function (controller) {
     async (bot, message) => {
       await bot.reply(message,
         {
-            text: 'Feel free to contact me via phone, email, or online profiles!',
+            text: 'You can contact me through email or and of my online profiles!',
             quick_replies: [
                 {
                     title: 'Portfolio',
