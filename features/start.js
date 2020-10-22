@@ -1,10 +1,9 @@
 module.exports = function(controller) {
     controller.on('hello', async(bot, message) => {
-        await bot.beginDialog('typing');
         await bot.reply(message, `Hello! I'm K3PO, the artificial conciousness of Kenneth's mind.`);
         await bot.changeContext(message.reference);
         await bot.reply(message, {
-            text: 'What would you like to know about my creator?',
+            text: 'What would you like to know about me?',
                 quick_replies: 
                 [
                     {
@@ -32,11 +31,10 @@ module.exports = function(controller) {
     });
 
     controller.on('welcome_back', async(bot, message) => {
-        await bot.beginDialog('typing');
         await bot.reply(message, `Welcome Back! I'm K3PO, the artificial conciousness of Kenneth's mind.`);
             await bot.changeContext(message.reference);
             await bot.reply(message, {
-                text: 'What would you like to know about my creator?',
+                text: 'What would you like to know about me?',
                 quick_replies: 
                   [
                       {
@@ -64,10 +62,9 @@ module.exports = function(controller) {
     });
 
     controller.hears('back', "message, direct_message",  async(bot, message) => {
-        await bot.beginDialog('typing');
         await bot.changeContext(message.reference);
         await bot.reply(message, {
-            text: 'What else would you like to know about my creator?',
+            text: 'What else would you like to know about me?',
             quick_replies: 
                 [
                     {

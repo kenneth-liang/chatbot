@@ -3,20 +3,32 @@
   box-sizing: border-box;
 }
 
+body{
+  background-color: #f1eedf !important;
+}
+
 body,
 html {
   margin: 0;
   padding: 0;
   font-size: 18px;
-  background-color: #FFF;
+  background-color: #f1eedf;
   font-family: "helvetica", sans-serif;
 }
 
 .wrapper {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
+    position: absolute;
+    max-width: 500px;
+    /* margin: 50 50px auto; */
+    /* width: 500px; */
+    height: 500px;
+    /* float: right; */
+    z-index: 2;
+    left: 45%;
+    top: 10%;
 }
+
+
 .wrapper:after {
   content: "";
   display: table;
@@ -53,7 +65,7 @@ footer {
 }
 
 a {
-  color: #a795ef;
+  color: lightskyblue;
 }
 
 .copyurl {
@@ -92,7 +104,7 @@ div.input label {
 }
 .addon button:hover {
   background: #FFF;
-  color: #a795ef;
+  color: lightskyblue;
 }
 
 div.hr {
@@ -103,7 +115,7 @@ div.hr {
 }
 
 a.button {
-  border: 2px solid #a795ef;
+  border: 2px solid lightskyblue;
   font-weight: bold;
   margin: 0;
   border-radius: 3px;
@@ -122,16 +134,16 @@ a.button:hover {
 /* chat client */
 #message_window {
   background: #FFFFFF;
-  border-left: 1px solid #CCC;
-  border-right: 1px solid #CCC;
-  /*height: 500px;
-  width: 320px;*/
+  /* border-left: 1px solid #CCC; */
+  /* border-right: 1px solid #CCC; */
   height: 100%;
   width: 100%;
-  /*margin: 2rem auto;*/
+  /* margin: 2rem auto; */
   display: flex;
   flex-direction: column;
   font-family: "helvetica", sans-serif;
+  box-shadow: 0 5px 10px #6a3604;
+  border-radius: 3px;
 }
 #message_window .disconnected {
   background: #FFFFCC;
@@ -166,7 +178,7 @@ a.button:hover {
 }
 #message_window .powered_by img {
   position: relative;
-  top: 2px;
+  top: -2.86px;
 }
 #message_window section {
   flex-grow: 1;
@@ -184,7 +196,7 @@ a.button:hover {
 }
 #message_window footer input[type=text] {
   flex-grow: 1;
-  font-size: 1.25rem;
+  font-size: 1rem;
   outline: none;
   border: none;
 }
@@ -247,7 +259,7 @@ a.button:hover {
 }
 #message_window .message.outgoing {
   float: right;
-  background: #a795ef;
+  background: lightskyblue;
   color: white;
 }
 #message_window #message_replies {
@@ -270,15 +282,15 @@ a.button:hover {
 #message_window #message_replies a {
   text-decoration: none;
   display: block;
-  border: 1px solid #a795ef;
-  color: #a795ef;
+  border: 1px solid lightskyblue;
+  color: lightskyblue;
   border-radius: 16px;
   padding: 0.25rem 1rem;
   font-size: 14px;
   cursor: pointer;
 }
 #message_window #message_replies a:hover {
-  background: #a795ef;
+  background: lightskyblue;
   color: #FFF;
 }
 
@@ -343,3 +355,65 @@ a.button:hover {
 }
 
 /*# sourceMappingURL=styles.css.map */
+
+
+/* Nav */
+
+.navbar{
+  height: 50px;
+  margin-bottom: 20px;
+  color: white;
+  
+}
+
+.ifa {
+    color: ghostwhite;
+    font-size: 25px;
+    margin: 5px;
+}
+
+.links:last-child {
+  padding-right: 4rem !important;
+}
+
+.k3po-div{
+  height: 375px;
+  width: 375px;
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  z-index: 1;
+}
+img.img-k3po {
+  height: 100%;
+  width: 100%;
+}
+
+
+@media only screen and (max-device-width: 1000px) { 
+
+  .wrapper {
+    position: absolute;
+    max-width: 500px;
+    height: 400px;
+    z-index: 2;
+    left: 0%;
+    top: 10%;
+    margin: 1rem;
+  }
+
+  .k3po-div {
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: 70%;
+    left: 15%;
+    z-index: 1;
+  }
+  img.img-k3po {
+    height: 100%;
+    width: 100%;
+  }
+
+
+}
