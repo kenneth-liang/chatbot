@@ -9,7 +9,7 @@ module.exports = function (controller) {
         {
           network: "LinkedIn",
           user: "Kenneth Liang",
-          link: "https://www.linkedin.com/in/insightfulkennethliang/"
+          link: "https://www.linkedin.com/in/devkennethliang/"
         },
         {
           network: "AngelList",
